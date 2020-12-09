@@ -7,8 +7,7 @@
 
 ## Getting Started
 
-- Fork and Clone
-- `npm install`
+- Create a new React App `npx create-react-app react-redux`
 
 ## React and State Management
 
@@ -90,10 +89,6 @@ Redux is built on the concept of `Reducers`, `Actions` and `Types`.
 We'll put some of this into practice in just a bit.
 
 ### Setup
-
-A react app has been provided for you.
-
-If you haven't installed your dependencies yet, do so now by running `npm install`.
 
 In order to use `Redux` with our react app we'll need to install a couple of new dependencies called `react-redux` and `redux`.
 
