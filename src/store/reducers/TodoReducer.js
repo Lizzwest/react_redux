@@ -1,8 +1,9 @@
-import { ADD_TODO, NEW_TODO, REMOVE_TODO, MARK_COMPLETE } from '../types';
+import { ADD_TODO, NEW_TODO, REMOVE_TODO, MARK_COMPLETE, FAVORITE_TODO, REMOVE_FAVORITE } from '../types';
 
 const initialState = {
     todos: [],
-    newTodo: ''
+    newTodo: '',
+    favorites: []
 };
 
 const TodoReducer = (state = initialState, action) => {
@@ -20,6 +21,10 @@ const TodoReducer = (state = initialState, action) => {
                 }
                 return todo;
             }).sort((a,b)=> (a.complete === b.complete) ? 0 : a.complete ? 1 : -1)]};
+        case FAVORITE_TODO:
+            return { ...state, favorites: [...state.favorites, state.todos[action.payload]]}
+        case REMOVE_FAVORITE:
+            return { ...state, favorites: [...state.favorites.filter((fave, index) => index !== action.payload)]}
         default:
             return { ...state };
     };
