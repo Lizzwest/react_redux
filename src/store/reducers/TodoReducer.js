@@ -17,12 +17,9 @@ const TodoReducer = (state = initialState, action) => {
             return { ...state, todos: [...state.todos.map((todo, index, arr) => {
                 if (index === action.payload) {
                     todo.complete = true;
-                    let temp = arr[arr.length-1]
-                    arr[arr.length-1] = arr[index]
-                    arr[index] = temp
                 }
-                return arr[index];
-            })]};
+                return todo;
+            }).sort((a,b)=> (a.complete === b.complete) ? 0 : a.complete ? 1 : -1)]};
         default:
             return { ...state };
     };
